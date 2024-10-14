@@ -14,6 +14,13 @@
                 <p class="mt-5">{{ $project->slug }}</p>
                 <p>{{ $project->summary }}</p>
                 <p>{{ $project->type ? $project->type->name : 'Nessun tipo associato' }}</p>
+                <p>
+                    @forelse ($project->technologies as $technology)
+                        {{ $technology->name }}
+                    @empty
+                        Il progetto non ha tecnologie assegnate
+                    @endforelse
+                </p>
             </div>
         </div>
     </div>
